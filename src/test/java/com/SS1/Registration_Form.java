@@ -1,10 +1,13 @@
 package com.SS1;
 
+import com.codeborne.selenide.ClickMethod;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.commands.Click;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -23,15 +26,15 @@ public class Registration_Form {
 
         open("/automation-practice-form");
 
+        //Name, Last name, Email
         $("[id=firstName]").setValue("Sergey");
         $("[id=lastName]").setValue("Starostin");
         $("[id=userEmail]").setValue("sergey@example.com");
 
+        //Gender radio button
+        $(byText("Male")).click();
 
-     // <input name="gender" required="" type="radio" id="gender-radio-2" class="custom-control-input" value="Female">
-        //$(By.name("gender-radio-1")).setValue("Male");
-
-
+        //Mobile
         $("#userNumber").setValue("89111234567");
 
 
