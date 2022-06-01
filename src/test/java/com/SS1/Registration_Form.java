@@ -40,10 +40,24 @@ public class Registration_Form {
         $("#userNumber").setValue("89111234567");
 
         //Date of Birth
-        $("[id=dateOfBirthInput]").shouldHave(value("01 Jun 2022"));
+
+        //Month
         $("[id=dateOfBirthInput]").click();
         $("[class=react-datepicker__month-select]").click();
-        
+        $(By.className("react-datepicker__month-select")).selectOptionByValue("7");
+
+        //Year
+        $("[class=react-datepicker__year-select]").click(); //способ №1
+        $(By.className("react-datepicker__year-select")).click();  //способ №2
+
+        $(By.className("react-datepicker__year-select")).selectOptionByValue("1989"); //способ №1
+        $("[class=react-datepicker__year-select]").selectOptionByValue("1989"); //способ №2
+
+
+       // $("[class=react-datepicker__day react-datepicker__day--016 react-datepicker__day--selected]").click();
+        $("[class=react-datepicker__day react-datepicker__day--016 react-datepicker__day--selected]").shouldHave(value("16"));
+        //$("[aria-label=Choose Wednesday, August 16th, 1989]").selectOptionByValue("16");
+ // <div class="react-datepicker__day react-datepicker__day--016 react-datepicker__day--selected" tabindex="0" aria-label="Choose Wednesday, August 16th, 1989" role="option" aria-disabled="false">16</div>
 
 
 
