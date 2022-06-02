@@ -54,11 +54,16 @@ public class Registration_Form {
         $("[class=react-datepicker__year-select]").selectOptionByValue("1989"); //способ №2
 
 
-       // $("[class=react-datepicker__day react-datepicker__day--016 react-datepicker__day--selected]").click();
-        $("[class=react-datepicker__day react-datepicker__day--016 react-datepicker__day--selected]").shouldHave(value("16"));
-        //$("[aria-label=Choose Wednesday, August 16th, 1989]").selectOptionByValue("16");
- // <div class="react-datepicker__day react-datepicker__day--016 react-datepicker__day--selected" tabindex="0" aria-label="Choose Wednesday, August 16th, 1989" role="option" aria-disabled="false">16</div>
+        $(byText("16")).click();
 
+        //Почему не работает?
+        //$("[class=react-datepicker__day react-datepicker__day--016 react-datepicker__day--selected]").click();
+
+
+        //Subjects
+        //$("[id=subjectsContainer]").click();
+        $(By.className("css-2b097c-container")).click();
+       // $(By.className("css-2b097c-container")).setValue("a").shouldHave(value("Arts"));
 
 
     }
