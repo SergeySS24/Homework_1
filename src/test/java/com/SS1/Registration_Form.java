@@ -43,7 +43,7 @@ public class Registration_Form {
         $("[id=dateOfBirthInput]").shouldHave(value("01 Jun 2022"));
         $("[id=dateOfBirthInput]").click();
         $("[class=react-datepicker__month-select]").click();
-        
+
 
 
 
