@@ -40,11 +40,30 @@ public class Registration_Form {
         $("#userNumber").setValue("89111234567");
 
         //Date of Birth
-        $("[id=dateOfBirthInput]").shouldHave(value("01 Jun 2022"));
+
+        //Month
         $("[id=dateOfBirthInput]").click();
         $("[class=react-datepicker__month-select]").click();
+        $(By.className("react-datepicker__month-select")).selectOptionByValue("7");
+
+        //Year
+        $("[class=react-datepicker__year-select]").click(); //способ №1
+        $(By.className("react-datepicker__year-select")).click();  //способ №2
+
+        $(By.className("react-datepicker__year-select")).selectOptionByValue("1989"); //способ №1
+        $("[class=react-datepicker__year-select]").selectOptionByValue("1989"); //способ №2
 
 
+        $(byText("16")).click();
+
+        //Почему не работает?
+        //$("[class=react-datepicker__day react-datepicker__day--016 react-datepicker__day--selected]").click();
+
+
+        //Subjects
+        //$("[id=subjectsContainer]").click();
+        $(By.className("css-2b097c-container")).click();
+       // $(By.className("css-2b097c-container")).setValue("a").shouldHave(value("Arts"));
 
 
     }
