@@ -63,7 +63,14 @@ public class Registration_Form {
         //Subjects
         //$("[id=subjectsContainer]").click();
         $(By.className("css-2b097c-container")).click();
-       // $(By.className("css-2b097c-container")).setValue("a").shouldHave(value("Arts"));
+
+
+        //$("[id=subjectsContainer]").setValue("Sergey");
+        $(By.className("css-2b097c-container")).setValue("a");
+
+
+
+        //$("[class=css-12jo7m5]").selectOptionByValue("Arts");
 
 
     }
