@@ -18,6 +18,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 
+
 public class Registration_Form {
 
     @BeforeAll
@@ -113,6 +114,8 @@ public class Registration_Form {
         $(By.className("table")).shouldHave(text("Sports"));
         $(By.className("table")).shouldHave(text("Best street ever, Saint Petersburg"));
         $(By.className("table")).shouldHave(text("NCR Delhi"));
+
+        $(By.className("table")).shouldHave(text("Student Name")).shouldHave(text("Sergey Starostin")).equals(true);
 
 
         $(By.id("closeLargeModal")).click();
