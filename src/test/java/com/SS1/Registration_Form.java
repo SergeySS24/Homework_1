@@ -66,28 +66,18 @@ public class Registration_Form {
 
 
         //Subjects
-        //$("[id=subjectsContainer]").click();
+        $("[id=subjectsContainer]").click();
         //$(By.className("css-2b097c-container")).click();
         //$("[class=css-2b097c-container]").click(); // почему не работает?
 
 
+        //Всякие лишние проверки
         $(By.className("css-2b097c-container")).shouldBe(enabled); //способ №1
         $("[id=subjectsContainer]").shouldBe(enabled); //способ №2
 
-        $("[id=subjectsContainer]").click();
 
-        $(By.className("css-yk16xz-control")).shouldBe(enabled);
-        $(By.className("subjects-auto-complete__value-container")).shouldBe(enabled);
-
-        $(By.className("subjects-auto-complete__value-container")).getValue();
-        //$(By.className("subjects-auto-complete__value-container")).selectOption("Arts");
-
-        //$(By.className("subjects-auto-complete__indicators css-1wy0on6")).setValue("a");
-        //$("[class=subjects-auto-complete__value-container]").setValue("Arts");
-
-        //$(By.className("css-1laao21-a11Text")).setValue("a");
-        //$("[class=css-12jo7m5]").selectOptionByValue("Arts");
-
+        $(By.id("subjectsInput")).setValue("Arts").pressEnter();
+        //$("#subjectsInput").setValue("English").pressEnter(); //способ №2
 
         //Hobbies
         $(byText("Sports")).click();
@@ -106,13 +96,26 @@ public class Registration_Form {
 
         //State and City
         $(By.className("css-1g6gooi")).click();
-       // $(By.className("css-1g6gooi")).("NCR");
+        $(By.id("react-select-3-input")).setValue("NCR").pressEnter();
+
+        $(By.className("css-1hwfws3")).click();
+        $(By.id("react-select-4-input")).setValue("Delhi").pressEnter();
+
+        $(By.id("submit")).click();
+
+        $(By.className("table")).shouldHave(text("Student Name"));
+        $(By.className("table")).shouldHave(text("Sergey Starostin"));
+        $(By.className("table")).shouldHave(text("Student Email"));
+        $(By.className("table")).shouldHave(text("Male"));
+        $(By.className("table")).shouldHave(text("8911123456"));
+        $(By.className("table")).shouldHave(text("16 August,1989"));
+        $(By.className("table")).shouldHave(text("Arts"));
+        $(By.className("table")).shouldHave(text("Sports"));
+        $(By.className("table")).shouldHave(text("Best street ever, Saint Petersburg"));
+        $(By.className("table")).shouldHave(text("NCR Delhi"));
 
 
-        //css-1uccc91-singleValue
-
-
-
+        $(By.id("closeLargeModal")).click();
 
 
     }
