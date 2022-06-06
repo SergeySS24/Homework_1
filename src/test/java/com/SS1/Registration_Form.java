@@ -106,7 +106,7 @@ public class Registration_Form {
 
         //State and City
         $(By.className("css-1g6gooi")).click();
-        $(By.className("css-1g6gooi")).("NCR");
+       // $(By.className("css-1g6gooi")).("NCR");
 
 
         //css-1uccc91-singleValue
