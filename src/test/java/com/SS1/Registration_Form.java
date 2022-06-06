@@ -60,6 +60,7 @@ public class Registration_Form {
 
         $(byText("16")).click();
 
+
         //Почему не работает?
         //$("[class=react-datepicker__day react-datepicker__day--016 react-datepicker__day--selected]").click();
 
@@ -109,6 +110,10 @@ public class Registration_Form {
 
 
         //css-1uccc91-singleValue
+
+
+
+
 
     }
 }
