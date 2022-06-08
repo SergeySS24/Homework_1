@@ -40,6 +40,8 @@ public class Registration_Form {
 
         //Gender radio button
         $(byText("Male")).click();
+        //$("[id=gender-radio-1]").click(); // почему не работает?
+        //(ByText("Male")).click(); // почему не работает с элементом ByText?
 
         //Mobile
         $("#userNumber").setValue("89111234567");
@@ -60,10 +62,7 @@ public class Registration_Form {
 
 
         $(byText("16")).click();
-
-
-        //Почему не работает?
-        //$("[class=react-datepicker__day react-datepicker__day--016 react-datepicker__day--selected]").click();
+        //$("[class=react-datepicker__day--019").click(); //Почему не работает?
 
 
         //Subjects
