@@ -1,18 +1,14 @@
 package com.SS1;
 
-import com.codeborne.selenide.ClickMethod;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.commands.Click;
-import com.codeborne.selenide.commands.UploadFile;
-import com.codeborne.selenide.impl.ElementFinder;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import java.io.File;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -84,11 +80,9 @@ public class Registration_Form {
 
 
         //Picture
-        //$(byText("Select picture")).click();
-        //$("[id=uploadPicture]").click();// почему не работает?
 
         $("#uploadPicture").uploadFile(new File("D:/My Docs/960.jpg"));
-
+        // $(By.id("uploadPicture")).uploadFile(new File("D:/My Docs/960.jpg")); способ 2
 
         //Current address
         $("[id=currentAddress]").setValue("Best street ever, Saint Petersburg");

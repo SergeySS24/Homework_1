@@ -1,12 +1,12 @@
 package com.normal;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selectors.byClassName;
+import java.io.File;
+
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -45,12 +45,12 @@ public class Normal_Registration {
         $(By.className("react-datepicker__day--019")).click();
 
         $(By.className("subjects-auto-complete__input")).click();
-        $(By.id("subjectsInput")).setValue("Arts");
+        $(By.id("subjectsInput")).setValue("Arts").pressEnter();
 
-        //$(byText("Sports")).click();
+        $(byText("Sports")).click();
 
-
-
+        //$("#uploadPicture").uploadFile(new File("D:/My Docs/960.jpg"));
+        $(By.id("uploadPicture")).uploadFile(new File("D:/My Docs/960.jpg"));
 
     }
 
