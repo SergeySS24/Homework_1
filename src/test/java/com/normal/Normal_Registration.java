@@ -1,5 +1,6 @@
 package com.normal;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -24,12 +25,14 @@ public class Normal_Registration {
     void FillNormalForm() {
 
         open("/automation-practice-form");
+        $(By.className("practice-form-wrapper")).shouldHave(Condition.text("Student Registration Form"));
+
 
         //$(By.className("mr-sm-2")).setValue("dqwdw");
-       // $(By.id("firstName")).setValue("ffff");
-        $("[id=firstName]").setValue("Sergey");
-        $("[id=lastName]").setValue("Starostin");
-        $("[id=userEmail]").setValue("adelaide.star@sss.com");
+        // $(By.id("firstName")).setValue("ffff");
+        $("#firstName").setValue("Sergey");
+        $("#lastName").setValue("Starostin");
+        $("#userEmail").setValue("adelaide.star@sss.com");
 
         $(byText("Male")).click();
 
@@ -51,6 +54,9 @@ public class Normal_Registration {
 
         //$("#uploadPicture").uploadFile(new File("D:/My Docs/960.jpg"));
         $(By.id("uploadPicture")).uploadFile(new File("D:/My Docs/960.jpg"));
+
+        $("#currentAddress").setValue("ddd");
+
 
     }
 
