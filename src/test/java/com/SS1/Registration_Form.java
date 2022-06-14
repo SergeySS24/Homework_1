@@ -5,8 +5,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -35,30 +33,32 @@ public class Registration_Form {
         $("[id=userEmail]").setValue("sergey@example.com");
 
         //Gender radio button
-        $(byText("Male")).click();
-        //$("[id=gender-radio-1]").click(); // почему не работает?
-        //(ByText("Male")).click(); // почему не работает с элементом ByText?
+        $(byText("Male")).click(); //вариант 1 (мой вариант)
+        //$("#gender-radio-1").parent().click(); //вариант 2
+        //$("#gender-radio-1").$(byText("Male")).click(); //вариант 3
+        //$("[id=gender-radio-1]").click(); // почему не работает - нужно потом разобраться
 
         //Mobile
         $("#userNumber").setValue("89111234567");
+
 
         //Date of Birth
 
         //Month
         $("[id=dateOfBirthInput]").click();
         $("[class=react-datepicker__month-select]").click();
-        $(By.className("react-datepicker__month-select")).selectOptionByValue("7");
+        $(By.className("react-datepicker__month-select")).selectOptionByValue("7"); //способ №1
+        //$(".react-datepicker__month-select").selectOption("July"); //способ №2
 
         //Year
         $("[class=react-datepicker__year-select]").click(); //способ №1
-        $(By.className("react-datepicker__year-select")).click();  //способ №2
+        //$(By.className("react-datepicker__year-select")).click();  //способ №2
 
-        $(By.className("react-datepicker__year-select")).selectOptionByValue("1989"); //способ №1
-        $("[class=react-datepicker__year-select]").selectOptionByValue("1989"); //способ №2
+        $(By.className("react-datepicker__year-select")).selectOptionByValue("2008"); //способ №1
+        //$("[class=react-datepicker__year-select]").selectOptionByValue("2008"); //способ №2
 
-
-        $(byText("16")).click();
-        //$("[class=react-datepicker__day--019").click(); //Почему не работает?
+        //$(byText("16")).click();
+        $(".react-datepicker__day--030:not(.react-datepicker__day--outside-month").click();
 
 
         //Subjects
@@ -80,29 +80,38 @@ public class Registration_Form {
 
 
         //Picture
-
-        $("#uploadPicture").uploadFile(new File("D:/My Docs/960.jpg"));
-        // $(By.id("uploadPicture")).uploadFile(new File("D:/My Docs/960.jpg")); способ 2
+        // $("#uploadPicture").uploadFile(new File("D:/My Docs/960.jpg"));
+        // $(By.id("uploadPicture")).uploadFile(new File("D:/My Docs/960.jpg")); //способ 2
+        $("#uploadPicture").uploadFromClasspath("img/1.png"); //способ 3
 
         //Current address
         $("[id=currentAddress]").setValue("Best street ever, Saint Petersburg");
 
 
         //State and City
-        $(By.className("css-1g6gooi")).click();
-        $(By.id("react-select-3-input")).setValue("NCR").pressEnter();
+        //$(By.className("css-1g6gooi")).click();
+        $("#state").click(); //способ 2
+        //$(By.id("react-select-3-input")).setValue("NCR").pressEnter();
+        $("#stateCity-wrapper").$(byText("NCR")).click(); //способ 2
+
 
         $(By.className("css-1hwfws3")).click();
         $(By.id("react-select-4-input")).setValue("Delhi").pressEnter();
 
         $(By.id("submit")).click();
 
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $(".table-responsive").shouldHave(text("Sergey Starostin"), text("Male"), text("Arts"));
+
+        $(".table-responsive").$(byText("Student Name"))
+                .parent().shouldHave(text("Sergey Starostin")); // проверка что в значение соответствует нужному полю
+
         $(By.className("table")).shouldHave(text("Student Name"));
         $(By.className("table")).shouldHave(text("Sergey Starostin"));
         $(By.className("table")).shouldHave(text("Student Email"));
         $(By.className("table")).shouldHave(text("Male"));
         $(By.className("table")).shouldHave(text("8911123456"));
-        $(By.className("table")).shouldHave(text("16 August,1989"));
+        //$(By.className("table")).shouldHave(text("16 August,1989"));
         $(By.className("table")).shouldHave(text("Arts"));
         $(By.className("table")).shouldHave(text("Sports"));
         $(By.className("table")).shouldHave(text("Best street ever, Saint Petersburg"));
@@ -111,7 +120,7 @@ public class Registration_Form {
         $(By.className("table")).shouldHave(text("Student Name")).shouldHave(text("Sergey Starostin")).equals(true);
 
 
-        $(By.id("closeLargeModal")).click();
+        //$(By.id("closeLargeModal")).click();
 
 
     }

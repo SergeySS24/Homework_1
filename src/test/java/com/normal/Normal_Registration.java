@@ -58,13 +58,15 @@ public class Normal_Registration {
         $("#currentAddress").setValue("ddd");
 
 
+        $(By.className("css-1hwfws3")).click();
+        $(By.id("react-select-3-input")).setValue("NCR").pressEnter();
+
+        $(By.className("css-1hwfws3")).click();
+        $(By.id("react-select-4-input")).setValue("Delhi").pressEnter();
+
+        $(By.id("submit")).click();
+
     }
-
-
-
-
-
-
 
 
 }
