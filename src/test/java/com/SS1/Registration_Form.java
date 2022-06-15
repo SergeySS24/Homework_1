@@ -83,6 +83,8 @@ public class Registration_Form {
         // $("#uploadPicture").uploadFile(new File("D:/My Docs/960.jpg"));
         // $(By.id("uploadPicture")).uploadFile(new File("D:/My Docs/960.jpg")); //способ 2
         $("#uploadPicture").uploadFromClasspath("img/1.png"); //способ 3
+        //$(By.id("uploadPicture")).uploadFile(new File("D:/My Docs/960.jpg")); //способ 4
+
 
         //Current address
         $("[id=currentAddress]").setValue("Best street ever, Saint Petersburg");
@@ -118,7 +120,8 @@ public class Registration_Form {
         $(By.className("table")).shouldHave(text("NCR Delhi"));
 
         $(By.className("table")).shouldHave(text("Student Name")).shouldHave(text("Sergey Starostin")).equals(true);
-
+        $(".table-responsive").$(byText("Student Name"))
+                .parent().shouldHave(text("Sergey Starostin"));
 
         //$(By.id("closeLargeModal")).click();
 
