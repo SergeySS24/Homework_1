@@ -5,8 +5,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -35,8 +33,8 @@ public class Registration_Form {
         $("[id=userEmail]").setValue("sergey@example.com");
 
         //Gender radio button
-        $(byText("Male")).click();
-        //$("[id=gender-radio-1]").click(); // почему не работает?
+        //$(byText("Male")).click();
+        $("#gender-radio-1").click(); // почему не работает?
         //(ByText("Male")).click(); // почему не работает с элементом ByText?
 
         //Mobile
@@ -81,8 +79,8 @@ public class Registration_Form {
 
         //Picture
 
-        $("#uploadPicture").uploadFile(new File("D:/My Docs/960.jpg"));
-        // $(By.id("uploadPicture")).uploadFile(new File("D:/My Docs/960.jpg")); способ 2
+        // $("#uploadPicture").uploadFile(new File("D:/My Docs/960.jpg"));
+        //$(By.id("uploadPicture")).uploadFile(new File("D:/My Docs/960.jpg")); //способ 2
 
         //Current address
         $("[id=currentAddress]").setValue("Best street ever, Saint Petersburg");
