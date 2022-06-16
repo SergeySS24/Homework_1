@@ -120,8 +120,7 @@ public class Registration_Form {
         $(By.className("table")).shouldHave(text("NCR Delhi"));
 
         $(By.className("table")).shouldHave(text("Student Name")).shouldHave(text("Sergey Starostin")).equals(true);
-        $(".table-responsive").$(byText("Student Name"))
-                .parent().shouldHave(text("Sergey Starostin"));
+        $(".table-responsive").shouldHave(text("Sergey Starostin"), text("Male"), text("Arts"));
 
         //$(By.id("closeLargeModal")).click();
 
