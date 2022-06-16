@@ -10,7 +10,24 @@ public class RandomUtils {
         while (result.length() < length) {
             int index = (int) (rnd.nextFloat() * SALTCHARS.length());
             result.append(SALTCHARS.charAt(index));
+
         }
+
         return result.toString();
+
     }
+
+    public static int getRandomInt(int min, int max) {
+        Random r = new Random();
+
+        return r.nextInt((max - min) + 1) + min;
+    }
+
+    public static String getRandomEmail() {
+        String emailDomain = "@qa.guru";
+
+        return getRandomString(10) + emailDomain;
+
+    }
+
 }
