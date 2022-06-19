@@ -2,6 +2,7 @@ package com.normal;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -12,18 +13,17 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static com.utils.RandomUtils.getRandomEmail;
-import static com.utils.RandomUtils.getRandomString;
 import static java.lang.String.format;
 
-public class Normal_Registration_TestdatawithRandomTests {
+public class Normal_Registration_TestdatawithFaker {
 
+    Faker faker = new Faker();
 
-    String firstName = getRandomString(10);
-    String lastName = getRandomString(10);
-    String email = getRandomEmail();
+    String firstName = faker.name().firstName();
+    String lastName = faker.name().lastName();
     String fullName = format("%s %s", firstName, lastName);
-
+    String email = faker.internet().emailAddress();
+    String currentAddress = faker.rickAndMorty().quote();
 
     @BeforeAll
     static void SetUp() {
@@ -54,7 +54,7 @@ public class Normal_Registration_TestdatawithRandomTests {
         $(By.id("subjectsInput")).setValue("Arts").pressEnter();
         $(byText("Sports")).click();
         $(By.id("uploadPicture")).uploadFile(new File("D:/My Docs/960.jpg"));
-        $("#currentAddress").setValue("Best street ever, Saint Petersburg");
+        $("#currentAddress").setValue(currentAddress);
         $(By.className("css-1hwfws3")).click();
         $(By.id("react-select-3-input")).setValue("NCR").pressEnter();
         $(By.className("css-1hwfws3")).click();
