@@ -39,13 +39,12 @@ public class Normal_RegistrationWithPageObjectTests {
 
         $(byText("Male")).click();
         $(By.id("userNumber")).setValue("89992525543");
-        $(By.id("dateOfBirthInput")).click();
-        $("[class=react-datepicker__month-select]").click();
-        $("[class=react-datepicker__month-select]").selectOption("March");
-        $("[class=react-datepicker__year-select]").click();
-        $("[class=react-datepicker__year-select]").selectOptionByValue("1989");
-        $(By.className("react-datepicker__day--019")).click();
+
+        registrationFormPage.setBirthDate("30", "July", "1989");
+
+
         $(By.className("subjects-auto-complete__input")).click();
+
         $(By.id("subjectsInput")).setValue("Arts").pressEnter();
         $(byText("Sports")).click();
         $(By.id("uploadPicture")).uploadFile(new File("D:/My Docs/960.jpg"));

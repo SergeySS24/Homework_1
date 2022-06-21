@@ -2,6 +2,7 @@ package com.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import com.pages.components.CalendarComponent;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
@@ -9,6 +10,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormPage {
+    CalendarComponent calendar = new CalendarComponent();
+
     // locators
     SelenideElement firstNameInput = $("#firstName");
 
@@ -37,6 +40,13 @@ public class RegistrationFormPage {
 
     public RegistrationFormPage setUserEmail(String value) {
         $("#userEmail").setValue(value);
+
+        return this;
+    }
+
+    public RegistrationFormPage setBirthDate(String day, String month, String year) {
+        $(By.id("dateOfBirthInput")).click();
+        calendar.setDate(day, month, year);
 
         return this;
     }
