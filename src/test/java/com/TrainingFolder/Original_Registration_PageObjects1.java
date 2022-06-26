@@ -18,19 +18,21 @@ public class Original_Registration_PageObjects1 {
     static void SetUp() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = true;
+        //Configuration.holdBrowserOpen = true;
     }
 
     @Test
     void FillNormalForm() {
-        new RegistrationFormPage().OpenPage();
 
+        RegistrationFormPage registrationFormPage = new RegistrationFormPage();
 
-        $("#firstName").setValue("Sergey");
-        $("#lastName").setValue("Starostin");
-        $("#userEmail").setValue("adelaide.star@sss.com");
-        $(byText("Male")).click();
-        $(By.id("userNumber")).setValue("89992525543");
+        registrationFormPage.OpenPage();
+        registrationFormPage.setFirstName("Sergey");
+        registrationFormPage.setLastName("Starostin");
+        registrationFormPage.setEmail("adelaide.star@sss.com");
+        registrationFormPage.setGender();
+        registrationFormPage.setUserNumber();
+
         $(By.id("dateOfBirthInput")).click();
         $("[class=react-datepicker__month-select]").click();
         $("[class=react-datepicker__month-select]").selectOption("March");
