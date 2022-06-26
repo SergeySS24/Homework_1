@@ -12,8 +12,16 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static java.lang.String.format;
 
-public class Training_Registration_PageObjects1 {
+public class Training_Registration_AssigningLines {
+
+
+    String firstName = "Sergey";
+    String lastName = "Starostin";
+    String email = "aaaaSSSS@gmail.com";
+
+    String fullName = format("%s %s", firstName, lastName);
 
     @BeforeAll
     static void SetUp() {
@@ -29,9 +37,9 @@ public class Training_Registration_PageObjects1 {
         $(By.className("practice-form-wrapper")).shouldHave(Condition.text("Student Registration Form"));
 
 
-        $("#firstName").setValue("Sergey");
-        $("#lastName").setValue("Starostin");
-        $("#userEmail").setValue("adelaide.star@sss.com");
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(email);
         $(byText("Male")).click();
         $(By.id("userNumber")).setValue("89992525543");
         $(By.id("dateOfBirthInput")).click();
@@ -52,7 +60,7 @@ public class Training_Registration_PageObjects1 {
         $(By.id("submit")).click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Sergey Starostin"), text("Male"), text("Arts"));
+        $(".table-responsive").shouldHave(text(fullName), text("Male"), text("Arts"));
     }
 
 
