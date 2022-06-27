@@ -8,30 +8,29 @@ import org.openqa.selenium.By;
 
 import java.io.File;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class Original_Registration_PageObjects1 {
 
+    RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+
     @BeforeAll
     static void SetUp() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-        //Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = true;
     }
 
     @Test
     void FillNormalForm() {
 
-        RegistrationFormPage registrationFormPage = new RegistrationFormPage();
-
-        registrationFormPage.OpenPage();
-        registrationFormPage.setFirstName("Sergey");
-        registrationFormPage.setLastName("Starostin");
-        registrationFormPage.setEmail("adelaide.star@sss.com");
-        registrationFormPage.setGender();
-        registrationFormPage.setUserNumber();
+        registrationFormPage.OpenPage()
+                .setFirstName("Sergey")
+                .setLastName("Starostin")
+                .setEmail("adelaide.star@sss.com")
+                .setGender()
+                .setUserNumber();
 
         $(By.id("dateOfBirthInput")).click();
         $("[class=react-datepicker__month-select]").click();
@@ -50,9 +49,11 @@ public class Original_Registration_PageObjects1 {
         $(By.id("react-select-4-input")).setValue("Delhi").pressEnter();
         $(By.id("submit")).click();
 
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Sergey Starostin"), text("Male"), text("Arts"));
-    }
+        registrationFormPage.checkTable()
+                .checkResult("Student Name", "Sergey Starostin")
+                .checkResult1("Student Email", "adelaide.star@sss.com")
+                .checkResult2("Gender", "Male");
 
+    }
 
 }
