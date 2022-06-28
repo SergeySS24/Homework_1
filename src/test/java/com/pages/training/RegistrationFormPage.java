@@ -1,6 +1,7 @@
 package com.pages.training;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import com.pages.components.TrainingCalendarComponent;
 import org.openqa.selenium.By;
@@ -18,6 +19,14 @@ public class RegistrationFormPage {
     SelenideElement firstNameInput = $("#firstName");
 
     //actions
+    public void prepareTests() {
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browserSize = "1920x1080";
+        Configuration.holdBrowserOpen = true;
+
+    }
+
+
     public RegistrationFormPage OpenPage() {
         open("/automation-practice-form");
         $(By.className("practice-form-wrapper")).shouldHave(Condition.text("Student Registration Form"));
@@ -55,7 +64,6 @@ public class RegistrationFormPage {
         return this;
     }
 
-
     public RegistrationFormPage setBirtdate(String day, String month, String year) {
         $(By.id("dateOfBirthInput")).click();
         calendar.setDate(day, month, year);
@@ -68,6 +76,42 @@ public class RegistrationFormPage {
         $(By.id("subjectsInput")).setValue("Arts").pressEnter();
 
         return this;
+    }
+
+    public RegistrationFormPage setSport() {
+        $(byText("Sports")).click();
+
+        return this;
+    }
+
+    public RegistrationFormPage uploadPicture() {
+        $("#uploadPicture").uploadFromClasspath("img/1.png");
+
+        return this;
+    }
+
+    public RegistrationFormPage setAddress(String value) {
+        $("#currentAddress").setValue(value);
+
+        return this;
+    }
+
+    public RegistrationFormPage setState() {
+        $(By.className("css-1hwfws3")).click();
+        $(By.id("react-select-3-input")).setValue("NCR").pressEnter();
+
+        return this;
+    }
+
+    public RegistrationFormPage setCity() {
+        $(By.className("css-1hwfws3")).click();
+        $(By.id("react-select-4-input")).setValue("Delhi").pressEnter();
+
+        return this;
+    }
+
+    public void submitForm() {
+        $(By.id("submit")).click();
     }
 
 
