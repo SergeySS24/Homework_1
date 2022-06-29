@@ -1,13 +1,13 @@
 package com.TrainingFolder;
 
 import com.codeborne.selenide.Configuration;
-import com.pages.training.RegistrationFormPage;
+import com.pages.training.RegistrationFormPage1;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class Original_Registration_PageObjects1 {
 
-    RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+    RegistrationFormPage1 registrationFormPage = new RegistrationFormPage1();
 
     @BeforeAll
     static void SetUp() {
