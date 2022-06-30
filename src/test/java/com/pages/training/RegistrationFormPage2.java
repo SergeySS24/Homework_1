@@ -1,6 +1,7 @@
 package com.pages.training;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import com.pages.components.Calendar2;
 import org.openqa.selenium.By;
 
@@ -13,7 +14,12 @@ public class RegistrationFormPage2 {
     Calendar2 calendar = new Calendar2();
 
     //locators
-
+    SelenideElement selectFirstName = $("#firstName");
+    SelenideElement selectLastName = $("#lastName");
+    SelenideElement selectEmail = $("#userEmail");
+    SelenideElement selectNumber = $(By.id("userNumber"));
+    SelenideElement selectSubject = $(By.id("subjectsInput"));
+    SelenideElement selectAddress = $("#currentAddress");
 
     //actions
     public RegistrationFormPage2 preliminary(String value) {
@@ -22,17 +28,17 @@ public class RegistrationFormPage2 {
     }
 
     public RegistrationFormPage2 setFirstName(String value) {
-        $("#firstName").setValue(value);
+        selectFirstName.setValue(value);
         return this;
     }
 
     public RegistrationFormPage2 setLastName(String value) {
-        $("#lastName").setValue(value);
+        selectLastName.setValue(value);
         return this;
     }
 
     public RegistrationFormPage2 setEmail(String value) {
-        $("#userEmail").setValue("adelaide.star@sss.com");
+        selectEmail.setValue("adelaide.star@sss.com");
         return this;
     }
 
@@ -42,7 +48,7 @@ public class RegistrationFormPage2 {
     }
 
     public RegistrationFormPage2 setUserNumber(String value) {
-        $(By.id("userNumber")).setValue(value);
+        selectNumber.setValue(value);
         return this;
     }
 
@@ -53,7 +59,7 @@ public class RegistrationFormPage2 {
     }
 
     public RegistrationFormPage2 setSubject() {
-        $(By.id("subjectsInput")).setValue("Arts").pressEnter();
+        selectSubject.setValue("Arts").pressEnter();
         return this;
     }
 
@@ -68,7 +74,7 @@ public class RegistrationFormPage2 {
     }
 
     public RegistrationFormPage2 setAddress(String value) {
-        $("#currentAddress").setValue(value);
+        selectAddress.setValue(value);
         return this;
     }
 
