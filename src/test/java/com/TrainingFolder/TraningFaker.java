@@ -1,28 +1,16 @@
 package com.TrainingFolder;
 
 import com.codeborne.selenide.Configuration;
-import com.docs.RandomUtilsExamples;
-import com.github.javafaker.Faker;
 import com.pages.training.RegistrationFormPage2;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class Original_Registration_PageObjects2 {
+public class TraningFaker {
 
     RegistrationFormPage2 registrationFormPage2 = new RegistrationFormPage2();
-    Faker faker = new Faker();
-    RandomUtilsExamples random = new RandomUtilsExamples();
-
-    //Faker usages
-    String firstName = faker.name().firstName();
-    String lastName = faker.name().lastName();
-    String userEmail = faker.internet().emailAddress();
-    String userNumber = faker.numerify("###########");
-    String subjectsInput = faker.backToTheFuture().quote();
-
-    //Integer day = getRandomInt(10,20);
+    //Faker faker = new Faker();
 
     @BeforeAll
     static void SetUp() {
@@ -36,23 +24,26 @@ public class Original_Registration_PageObjects2 {
 
         open("/automation-practice-form");
 
+        // String firstName = faker.name().firstName();
+        // String lastName = faker.name().lastName();
+
         registrationFormPage2.preliminary("Student Registration Form")
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(userEmail)
+                //.setFirstName()
+                // .setLastName(lastName)
+                .setEmail("adelaide.star@sss.com")
                 .setGender()
-                .setUserNumber(userNumber)
+                .setUserNumber("89992525543")
                 .setBirthday("19", "March", "1989")
                 .setSubject()
                 .setHobby()
                 .uploadFile()
-                .setAddress(subjectsInput)
+                .setAddress("Best street ever, Saint Petersburg")
                 .setState()
                 .setCity()
                 .submit();
 
-        registrationFormPage2.acknowledgement("Thanks for submitting the form")
-                .acknowledgement2(firstName, lastName, "Male", "Arts");
+        // registrationFormPage2.acknowledgement("Thanks for submitting the form")
+        // .acknowledgement2(firstName, lastName,"Male", "Arts");
 
 
     }

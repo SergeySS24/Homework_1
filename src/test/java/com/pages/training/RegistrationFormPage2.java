@@ -2,6 +2,7 @@ package com.pages.training;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import com.github.javafaker.Faker;
 import com.pages.components.Calendar2;
 import org.openqa.selenium.By;
 
@@ -12,6 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class RegistrationFormPage2 {
 
     Calendar2 calendar = new Calendar2();
+    Faker faker = new Faker();
 
     //locators
     SelenideElement selectFirstName = $("#firstName");
@@ -20,6 +22,9 @@ public class RegistrationFormPage2 {
     SelenideElement selectNumber = $(By.id("userNumber"));
     SelenideElement selectSubject = $(By.id("subjectsInput"));
     SelenideElement selectAddress = $("#currentAddress");
+
+    //faker
+    String firstName = faker.name().firstName();
 
     //actions
     public RegistrationFormPage2 preliminary(String value) {
@@ -100,8 +105,10 @@ public class RegistrationFormPage2 {
         return this;
     }
 
-    public RegistrationFormPage2 acknowledgement2(String name, String gender, String subject) {
+    public RegistrationFormPage2 acknowledgement2(String name, String lastName, String gender, String subject) {
         $(".table-responsive").shouldHave(text(name), text(gender), text(subject));
         return this;
+
     }
+
 }
