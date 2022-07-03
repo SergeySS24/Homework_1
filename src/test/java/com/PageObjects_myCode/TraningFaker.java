@@ -1,7 +1,7 @@
-package com.TrainingFolder;
+package com.PageObjects_myCode;
 
 import com.codeborne.selenide.Configuration;
-import com.pages.training.RegistrationFormPage2;
+import com.pages.PageObjects.training.RegistrationFormPage2;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

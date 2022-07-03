@@ -1,8 +1,8 @@
-package com.TrainingFolder;
+package com.PageObjects_fromLecture;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import com.pages.training.RegistrationFormPage2;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -13,10 +13,17 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static java.lang.String.format;
 
-public class Original_Registration {
+public class Normal_Registration_TestdatawithFaker {
 
-    RegistrationFormPage2 reg = new RegistrationFormPage2();
+    Faker faker = new Faker();
+
+    String firstName = faker.name().firstName();
+    String lastName = faker.name().lastName();
+    String fullName = format("%s %s", firstName, lastName);
+    String email = faker.internet().emailAddress();
+    String currentAddress = faker.rickAndMorty().quote();
 
     @BeforeAll
     static void SetUp() {
@@ -32,24 +39,22 @@ public class Original_Registration {
         $(By.className("practice-form-wrapper")).shouldHave(Condition.text("Student Registration Form"));
 
 
-        $("#firstName").setValue("Sergey");
-        $("#lastName").setValue("Starostin");
-        $("#userEmail").setValue("adelaide.star@sss.com");
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(email);
         $(byText("Male")).click();
         $(By.id("userNumber")).setValue("89992525543");
-
         $(By.id("dateOfBirthInput")).click();
         $("[class=react-datepicker__month-select]").click();
         $("[class=react-datepicker__month-select]").selectOption("March");
         $("[class=react-datepicker__year-select]").click();
         $("[class=react-datepicker__year-select]").selectOptionByValue("1989");
         $(By.className("react-datepicker__day--019")).click();
-
         $(By.className("subjects-auto-complete__input")).click();
         $(By.id("subjectsInput")).setValue("Arts").pressEnter();
         $(byText("Sports")).click();
         $(By.id("uploadPicture")).uploadFile(new File("D:/My Docs/960.jpg"));
-        $("#currentAddress").setValue("Best street ever, Saint Petersburg");
+        $("#currentAddress").setValue(currentAddress);
         $(By.className("css-1hwfws3")).click();
         $(By.id("react-select-3-input")).setValue("NCR").pressEnter();
         $(By.className("css-1hwfws3")).click();
@@ -57,8 +62,7 @@ public class Original_Registration {
         $(By.id("submit")).click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Sergey Starostin"), text("Male"), text("Arts"));
-
+        $(".table-responsive").shouldHave(text(lastName), text(email), text(fullName));
 
     }
 

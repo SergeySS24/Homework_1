@@ -1,9 +1,9 @@
-package com.pages.training;
+package com.pages.PageObjects.training;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
-import com.pages.components.Calendar2;
+import com.pages.PageObjects.components.Calendar2;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;

@@ -1,9 +1,9 @@
-package com.pages.training;
+package com.pages.PageObjects.training;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
-import com.pages.components.TrainingCalendarComponent;
+import com.pages.PageObjects.components.TrainingCalendarComponent;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;

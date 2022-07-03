@@ -1,7 +1,7 @@
-package com.normal;
+package com.PageObjects_fromLecture;
 
 import com.codeborne.selenide.Configuration;
-import com.pages.RegistrationFormPage;
+import com.pages.PageObjects.RegistrationFormPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;

@@ -1,4 +1,4 @@
-package com.normal;
+package com.PageObjects_fromLecture;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
@@ -12,15 +12,25 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.utils.RandomUtils.getRandomEmail;
+import static com.utils.RandomUtils.getRandomString;
+import static java.lang.String.format;
 
-public class Normal_Registration {
+public class Normal_Registration_TestdatawithRandomTests {
+
+
+    String firstName = getRandomString(10);
+    String lastName = getRandomString(10);
+    String email = getRandomEmail();
+    String fullName = format("%s %s", firstName, lastName);
+
 
     @BeforeAll
-    static void SetUp(){
+    static void SetUp() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
         Configuration.holdBrowserOpen = true;
-        }
+    }
 
     @Test
     void FillNormalForm() {
@@ -29,10 +39,9 @@ public class Normal_Registration {
         $(By.className("practice-form-wrapper")).shouldHave(Condition.text("Student Registration Form"));
 
 
-
-        $("#firstName").setValue("Sergey");
-        $("#lastName").setValue("Starostin");
-        $("#userEmail").setValue("adelaide.star@sss.com");
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(email);
         $(byText("Male")).click();
         $(By.id("userNumber")).setValue("89992525543");
         $(By.id("dateOfBirthInput")).click();
@@ -53,7 +62,8 @@ public class Normal_Registration {
         $(By.id("submit")).click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Sergey Starostin"), text("Male"), text("Arts"));
+        $(".table-responsive").shouldHave(text(lastName), text(email), text(fullName));
+
     }
 
 

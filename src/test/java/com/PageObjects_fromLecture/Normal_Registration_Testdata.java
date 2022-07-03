@@ -1,4 +1,4 @@
-package com.TrainingFolder;
+package com.PageObjects_fromLecture;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
@@ -14,14 +14,14 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static java.lang.String.format;
 
-public class Training_Registration_AssigningLines {
+public class Normal_Registration_Testdata {
 
 
     String firstName = "Sergey";
     String lastName = "Starostin";
-    String email = "aaaaSSSS@gmail.com";
-
+    String email = "adelaide.star@sss.com";
     String fullName = format("%s %s", firstName, lastName);
+
 
     @BeforeAll
     static void SetUp() {
@@ -60,7 +60,8 @@ public class Training_Registration_AssigningLines {
         $(By.id("submit")).click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text(fullName), text("Male"), text("Arts"));
+        $(".table-responsive").shouldHave(text(lastName), text(email), text(fullName));
+
     }
 
 

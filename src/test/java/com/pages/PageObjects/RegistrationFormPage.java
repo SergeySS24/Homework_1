@@ -1,8 +1,8 @@
-package com.pages;
+package com.pages.PageObjects;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import com.pages.components.CalendarComponent;
+import com.pages.PageObjects.components.CalendarComponent;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;

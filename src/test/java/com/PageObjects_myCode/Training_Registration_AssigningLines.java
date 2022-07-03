@@ -1,4 +1,4 @@
-package com.normal;
+package com.PageObjects_myCode;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
@@ -14,14 +14,14 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static java.lang.String.format;
 
-public class Normal_Registration_Testdata {
+public class Training_Registration_AssigningLines {
 
 
     String firstName = "Sergey";
     String lastName = "Starostin";
-    String email = "adelaide.star@sss.com";
-    String fullName = format("%s %s", firstName, lastName);
+    String email = "aaaaSSSS@gmail.com";
 
+    String fullName = format("%s %s", firstName, lastName);
 
     @BeforeAll
     static void SetUp() {
@@ -60,8 +60,7 @@ public class Normal_Registration_Testdata {
         $(By.id("submit")).click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text(lastName), text(email), text(fullName));
-
+        $(".table-responsive").shouldHave(text(fullName), text("Male"), text("Arts"));
     }
 
 
