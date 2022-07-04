@@ -23,8 +23,6 @@ public class RegistrationFormPage2 {
     SelenideElement selectSubject = $(By.id("subjectsInput"));
     SelenideElement selectAddress = $("#currentAddress");
 
-    //faker
-    String firstName = faker.name().firstName();
 
     //actions
     public RegistrationFormPage2 preliminary(String value) {
@@ -43,7 +41,7 @@ public class RegistrationFormPage2 {
     }
 
     public RegistrationFormPage2 setEmail(String value) {
-        selectEmail.setValue("adelaide.star@sss.com");
+        selectEmail.setValue(value);
         return this;
     }
 
