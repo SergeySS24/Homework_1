@@ -20,7 +20,7 @@ public class Original_Registration_PageObjects2 {
     String lastName = faker.name().lastName();
     String userEmail = faker.internet().emailAddress();
     String userNumber = faker.numerify("###########");
-    String subjectsInput = faker.backToTheFuture().quote();
+    String selectAddress = faker.backToTheFuture().quote();
 
     //Integer day = getRandomInt(10,20);
 
@@ -46,7 +46,7 @@ public class Original_Registration_PageObjects2 {
                 .setSubject()
                 .setHobby()
                 .uploadFile()
-                .setAddress(subjectsInput)
+                .setAddress(selectAddress)
                 .setState()
                 .setCity()
                 .submit();
