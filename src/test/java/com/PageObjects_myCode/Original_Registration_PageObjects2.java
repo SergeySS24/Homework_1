@@ -1,7 +1,6 @@
 package com.PageObjects_myCode;
 
 import com.codeborne.selenide.Configuration;
-import com.docs.RandomUtilsExamples;
 import com.github.javafaker.Faker;
 import com.pages.PageObjects.training.RegistrationFormPage2;
 import org.junit.jupiter.api.BeforeAll;
@@ -13,7 +12,7 @@ public class Original_Registration_PageObjects2 {
 
     RegistrationFormPage2 registrationFormPage2 = new RegistrationFormPage2();
     Faker faker = new Faker();
-    RandomUtilsExamples random = new RandomUtilsExamples();
+    //RandomUtilsExamples random = new RandomUtilsExamples();
 
     //Faker usages
     String firstName = faker.name().firstName();
