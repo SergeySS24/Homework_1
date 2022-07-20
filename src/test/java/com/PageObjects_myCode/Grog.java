@@ -11,7 +11,6 @@ public class Grog {
 
     @Test
     public void testingPage() {
-
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         mock.startTest("https://demoqa.com/automation-practice-form")
