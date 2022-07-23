@@ -1,5 +1,6 @@
 package com.pages.PageObjects.training;
 
+import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
@@ -11,8 +12,14 @@ import static com.codeborne.selenide.Selenide.open;
 public class StepSupport {
 
     @Step("open webpage")
-    public StepSupport prepareTest() {
-        open("https://demoqa.com/automation-practice-form");
+    public StepSupport prepareTest(String webpage) {
+        open(webpage);
+        return this;
+    }
+
+    @Step("verify appeared paga")
+    public StepSupport verifyPage(String pageform) {
+        $(By.className("practice-form-wrapper")).shouldHave(Condition.text(pageform));
         return this;
     }
 
@@ -44,10 +51,9 @@ public class StepSupport {
     public StepSupport setPhone(String number) {
         $(By.id("userNumber")).setValue(number);
         return this;
-
     }
 
-    @Step("enter date")
+    @Step("birthday")
     public StepSupport setDate(String day, String month, String year) {
         $(By.id("dateOfBirthInput")).click();
         $("[class=react-datepicker__month-select]").click();
@@ -97,7 +103,7 @@ public class StepSupport {
         return this;
     }
 
-    @Step("subbit from")
+    @Step("submit from")
     public StepSupport submitForm() {
         $(By.id("submit")).click();
         return this;

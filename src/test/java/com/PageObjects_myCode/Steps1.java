@@ -19,7 +19,8 @@ public class Steps1 {
     @Test
     public void initiateTests() {
         SelenideLogger.addListener("star", new AllureSelenide());
-        step.prepareTest()
+        step.prepareTest("https://demoqa.com/automation-practice-form")
+                .verifyPage("Student Registration Form")
                 .setFirstName("Sergey")
                 .setLastName("Starostin")
                 .setEmail("adelaide.star@sss.com")
