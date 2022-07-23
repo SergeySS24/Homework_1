@@ -17,7 +17,7 @@ public class StepSupport {
         return this;
     }
 
-    @Step("verify appeared paga")
+    @Step("verify appeared page")
     public StepSupport verifyPage(String pageform) {
         $(By.className("practice-form-wrapper")).shouldHave(Condition.text(pageform));
         return this;
