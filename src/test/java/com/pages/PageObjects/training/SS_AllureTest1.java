@@ -20,7 +20,11 @@ public class SS_AllureTest1 {
     }
 
     public SS_AllureTest1 setFirstName(String name) {
-        $("#firstName").setValue(name);
+        try {
+            $("#firstName").setValue(name);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
         return this;
     }
 
